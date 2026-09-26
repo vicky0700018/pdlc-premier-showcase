@@ -1,0 +1,2 @@
+import { createFileRoute } from "@tanstack/react-router"; import { AdminDashboard } from "@/components/admin";
+export const Route=createFileRoute("/admin/dashboard")({head:()=>({meta:[{title:"PDLC Admin Dashboard"},{name:"description",content:"Manage the frontend-only PDLC demo experience."},{property:"og:title",content:"PDLC Admin Dashboard"},{property:"og:description",content:"PDLC demo content management workspace."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}]}),component:AdminDashboard});
