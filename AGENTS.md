@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the PDLC demo frontend-only with one in-memory React provider as the shared mock-data source, because admin edits must reflect publicly during the current session without persistence.
+- Keep public pages as dedicated TanStack routes and admin management sections inside `/admin/dashboard`, because this preserves shareable public URLs while keeping the demo admin workflow cohesive.
