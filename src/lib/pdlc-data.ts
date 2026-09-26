@@ -54,7 +54,7 @@ export const initialTestimonials: Testimonial[] = [
 
 export const initialCenters: Center[] = ["Mumbai Central", "Andheri", "Borivali", "Ghatkopar", "Pune", "Delhi"].map((name, index) => ({ id: `c${index + 1}`, name, address: `Demo learning center, ${name} — illustrative address only`, phone: "[PHONE NUMBER]", email: "[EMAIL ADDRESS]", hours: "Mon–Sat · 8:00 AM–8:00 PM", programs: index % 2 ? "CA, Commerce, Entrance" : "CA, CFA, ACCA, CS", image: index % 2 ? classroomImage : mentorshipImage, active: true }));
 
-export const initialFaqs: Faq[] = [
+const faqSeeds: Array<[string, string]> = [
   ["What programs do you offer?", "The demo catalogue includes professional, commerce, entrance and global exam pathways."],
   ["Do you provide online classes?", "Yes. Selected demo programs show classroom, live and hybrid learning formats."],
   ["Do you provide study material?", "Structured notes, practice sets and revision resources are represented as part of each program."],
@@ -63,7 +63,8 @@ export const initialFaqs: Faq[] = [
   ["How can I choose the right program?", "Submit an enquiry and a demo academic counsellor will help map your goals to a pathway."],
   ["How can I book a counselling session?", "Use the Enquire Now form or the counselling button shown across the website."],
   ["How can I visit a center?", "Choose a demo center and use its directions action or send an enquiry for a visit."],
-].map(([question, answer], index) => ({ id: `q${index + 1}`, question, answer, category: "General", active: true }));
+];
+export const initialFaqs: Faq[] = faqSeeds.map(([question, answer], index) => ({ id: `q${index + 1}`, question, answer, category: "General", active: true }));
 
 export const initialEnquiries: Enquiry[] = [
   { id: "e1", name: "Nikhil Verma", email: "nikhil@example.com", phone: "+91 90000 00001", program: "CA Coaching", center: "Andheri", date: "26 Sep 2026", status: "New" },
@@ -71,13 +72,14 @@ export const initialEnquiries: Enquiry[] = [
   { id: "e3", name: "Rohan Das", email: "rohan@example.com", phone: "+91 90000 00003", program: "BBA / IPM", center: "Ghatkopar", date: "24 Sep 2026", status: "Converted" },
 ];
 
-export const initialCareers: Career[] = [
+const careerSeeds: Array<[string, string, string, string, string, string]> = [
   ["Academic Counsellor", "Admissions", "Mumbai", "Full time", "Guide students and families toward suitable learning pathways.", "Clear communication · education counselling · student-first mindset"],
   ["Faculty Member", "Academics", "Multiple locations", "Full time / Visiting", "Deliver concept-led sessions and support academic planning.", "Subject expertise · teaching experience · mentorship orientation"],
   ["Student Relationship Executive", "Student Success", "Mumbai", "Full time", "Coordinate student support, progress updates and parent communication.", "Organisation · empathy · service experience"],
   ["Marketing Executive", "Growth", "Mumbai", "Full time", "Create responsible campaigns and community outreach programs.", "Content sense · campaign execution · analytics basics"],
   ["Center Operations Executive", "Operations", "Multiple locations", "Full time", "Keep academic schedules, facilities and student services running smoothly.", "Operations experience · ownership · coordination"],
-].map(([title, department, location, type, description, requirements], i) => ({ id: `j${i + 1}`, title, department, location, type, description, requirements, active: true }));
+];
+export const initialCareers: Career[] = careerSeeds.map(([title, department, location, type, description, requirements], i) => ({ id: `j${i + 1}`, title, department, location, type, description, requirements, active: true }));
 
 export const initialSettings = { businessName: "PDLC", fullName: "PD Learning Curve", tagline: "You trust. We care.", phone: "[PHONE NUMBER]", email: "[EMAIL ADDRESS]", address: "[BUSINESS ADDRESS]", footer: "Structured learning, thoughtful mentorship and professional preparation for ambitious students.", primary: "#0B1F3A", secondary: "#123B63", accent: "#D4A72C" };
 export const initialStatistics = [
