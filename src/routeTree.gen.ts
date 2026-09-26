@@ -20,6 +20,8 @@ import { Route as FacultyRouteImport } from './routes/faculty'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as ProgramsRouteImport } from './routes/programs'
 import { Route as TestimonialsRouteImport } from './routes/testimonials'
+import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as ProgramsProgramIdRouteImport } from './routes/programs.$programId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -77,6 +79,16 @@ const TestimonialsRoute = TestimonialsRouteImport.update({
   path: '/testimonials',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/admin/dashboard',
+  path: '/admin/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProgramsProgramIdRoute = ProgramsProgramIdRouteImport.update({
   id: '/$programId',
   path: '/$programId',
@@ -95,6 +107,8 @@ export interface FileRoutesByFullPath {
   '/faq': typeof FaqRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/testimonials': typeof TestimonialsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/login': typeof AdminLoginRoute
   '/programs/$programId': typeof ProgramsProgramIdRoute
 }
 export interface FileRoutesByTo {
@@ -109,6 +123,8 @@ export interface FileRoutesByTo {
   '/faq': typeof FaqRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/testimonials': typeof TestimonialsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/login': typeof AdminLoginRoute
   '/programs/$programId': typeof ProgramsProgramIdRoute
 }
 export interface FileRoutesById {
@@ -124,6 +140,8 @@ export interface FileRoutesById {
   '/faq': typeof FaqRoute
   '/programs': typeof ProgramsRouteWithChildren
   '/testimonials': typeof TestimonialsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/login': typeof AdminLoginRoute
   '/programs/$programId': typeof ProgramsProgramIdRoute
 }
 export interface FileRouteTypes {
@@ -140,6 +158,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/programs'
     | '/testimonials'
+    | '/admin/dashboard'
+    | '/admin/login'
     | '/programs/$programId'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -154,6 +174,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/programs'
     | '/testimonials'
+    | '/admin/dashboard'
+    | '/admin/login'
     | '/programs/$programId'
   id:
     | '__root__'
@@ -168,6 +190,8 @@ export interface FileRouteTypes {
     | '/faq'
     | '/programs'
     | '/testimonials'
+    | '/admin/dashboard'
+    | '/admin/login'
     | '/programs/$programId'
   fileRoutesById: FileRoutesById
 }
@@ -183,6 +207,8 @@ export interface RootRouteChildren {
   FaqRoute: typeof FaqRoute
   ProgramsRoute: typeof ProgramsRouteWithChildren
   TestimonialsRoute: typeof TestimonialsRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -264,6 +290,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TestimonialsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/admin/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/programs/$programId': {
       id: '/programs/$programId'
       path: '/$programId'
@@ -298,6 +338,8 @@ const rootRouteChildren: RootRouteChildren = {
   FaqRoute: FaqRoute,
   ProgramsRoute: ProgramsRouteWithChildren,
   TestimonialsRoute: TestimonialsRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
